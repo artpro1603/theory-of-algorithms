@@ -1,4 +1,4 @@
-# tree_traversals_with_stack.py
+# Обхід ЧЧД, яке вже побудовано
 # Створюємо вручну задане дерево та робимо три обходи.
 # Додатково: inorder з виводом стану стеку викликів рекурсивної функції.
 
@@ -8,7 +8,7 @@ class Node:
         self.left = None
         self.right = None
 
-# ---- Побудова дерева (точно як у тебе) ----
+# ---- Побудова дерева ---
 #            79
 #         /      \
 #       42        88
@@ -28,8 +28,8 @@ root.left.right = Node(61)
 root.right.left = Node(87)
 root.right.right = Node(98)
 
-root.right.left.left = Node(82)   # 82 — лівий син 87
-root.right.right.left = Node(97)  # 97 — лівий син 98
+root.right.left.left = Node(82)
+root.right.right.left = Node(97)
 
 # ---- обходи ----
 def preorder(node, res):
@@ -53,7 +53,7 @@ def postorder(node, res):
         res.append(node.key)
     return res
 
-# ---- inorder з виводом стану стеку (симетричний, як для BST) ----
+# ---- inorder з виводом стану стеку ----
 def inorder_with_stack(node):
     stack = []
     def helper(n):
@@ -77,3 +77,4 @@ if __name__ == "__main__":
 
     print("\nInorder зі стеком рекурсії:")
     inorder_with_stack(root)
+
